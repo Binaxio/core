@@ -7,7 +7,7 @@ interface IBinaryOptions {
     struct UserInfo {
         address user;
         int256 amount;
-        uint128 ratio;
+        uint128 rate;
         uint128 blockNumber;
     }
 
@@ -23,13 +23,13 @@ interface IBinaryOptions {
         address user,
         uint256 amount,
         uint256 blockNumber,
-        uint256 ratio
+        uint256 rate
     );
     event ButBear(
         address user,
         uint256 amount,
         uint256 blockNumber,
-        uint256 ratio
+        uint256 rate
     );
 
     function roundInfo(
@@ -78,21 +78,9 @@ interface IBinaryOptions {
 
     // function submitPrice(uint256[] calldata price, uint256 epoch) external;
 
-    function betBull(uint256 amount) external;
+    function betC(uint256 amount) external;
 
-    function betBear(uint256 amount) external;
+    function betP(uint256 amount) external;
 
-    function addLiquidity(
-        address token,
-        uint256 amountIn,
-        uint256 minUtOut,
-        address to
-    ) external;
-
-    function removeLiquidity(
-        address token,
-        uint256 utIn,
-        uint256 minAmountOut,
-        address to
-    ) external;
+    function claimWin(uint256 epoch) external;
 }
